@@ -23,3 +23,6 @@ replay_pid*
 
 # Generated jars
 *.jar
+
+# zip files
+*.zip
