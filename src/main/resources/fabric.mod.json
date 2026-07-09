@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "shieldkey",
+  "version": "${version}",
+  "name": "ShieldKey",
+  "description": "A lightweight Fabric mod that adds a dedicated keybind for raising your shield.",
+  "authors": ["Derek Dreblow"],
+  "contact": {
+    "sources": "https://github.com/dreblow/ShieldKey"
+  },
+  "license": "MIT",
+  "icon": "assets/shieldkey/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.dreblowdesigns.shieldkey.ShieldKeyClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
