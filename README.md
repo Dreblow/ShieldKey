@@ -44,3 +44,25 @@ Players using laptops and trackpads often have difficulty holding right-click wh
 ## License
 
 MIT
+
+---
+
+# Revision History
+
+## ShieldKey 0.1.0-alpha
+
+Initial public alpha release.
+
+### Features
+
+- Adds a dedicated configurable shield keybind.
+- Raises an offhand shield while the key is held.
+- Preserves normal vanilla shield behavior.
+- Runs entirely on the client.
+- Defaults to Left Shift.
+
+### Requirements
+
+- Minecraft 26.2
+- Fabric Loader 0.19.3 or newer
+- Fabric API
