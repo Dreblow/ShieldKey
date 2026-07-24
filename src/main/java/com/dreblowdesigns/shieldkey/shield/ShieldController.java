@@ -42,7 +42,7 @@ public final class ShieldController {
             if (attackHeld) {
                 state = ShieldState.ATTACKING;
 
-                ShieldKeyClient.LOGGER.info("[ShieldKey] State = ATTACKING");
+                ShieldKeyClient.LOGGER.debug("[ShieldKey] State = ATTACKING");
             }
             else {
                 activateShield(client);
@@ -66,7 +66,7 @@ public final class ShieldController {
             client.options.keyUse.setDown(false);
             state = ShieldState.ATTACKING;
 
-            ShieldKeyClient.LOGGER.info("[ShieldKey] State = ATTACKING");
+            ShieldKeyClient.LOGGER.debug("[ShieldKey] State = ATTACKING");
         }
 
         //
@@ -98,7 +98,7 @@ public final class ShieldController {
             client.options.keyUse.setDown(true);
             restoreAfterRightClickRelease = false;
 
-            ShieldKeyClient.LOGGER.info("[ShieldKey] Restored UseKey after right-click release");
+            ShieldKeyClient.LOGGER.debug("[ShieldKey] Restored UseKey after right-click release");
         }
 
         lastShieldKeyHeld = shieldKeyHeld;
@@ -116,7 +116,7 @@ public final class ShieldController {
         client.options.keyUse.setDown(true);
         state = ShieldState.ACTIVE;
 
-        ShieldKeyClient.LOGGER.info("[ShieldKey] State = ACTIVE");
+        ShieldKeyClient.LOGGER.debug("[ShieldKey] State = ACTIVE");
     }
 
     private static void handleRightClickPressed(Minecraft client) {
@@ -127,7 +127,7 @@ public final class ShieldController {
                 client.options.keyUse.setDown(false);
                 state = ShieldState.SUSPENDED;
 
-                ShieldKeyClient.LOGGER.info("[ShieldKey] State = SUSPENDED");
+                ShieldKeyClient.LOGGER.debug("[ShieldKey] State = SUSPENDED");
             }
 
             case SUSPENDED -> {
@@ -135,7 +135,7 @@ public final class ShieldController {
                 restoreAfterRightClickRelease = true;
                 state = ShieldState.ACTIVE;
 
-                ShieldKeyClient.LOGGER.info("[ShieldKey] State = ACTIVE");
+                ShieldKeyClient.LOGGER.debug("[ShieldKey] State = ACTIVE");
             }
 
             case IDLE, ATTACKING -> {
@@ -150,7 +150,7 @@ public final class ShieldController {
         restoreAfterRightClickRelease = false;
         state = ShieldState.IDLE;
 
-        ShieldKeyClient.LOGGER.info("[ShieldKey] State = IDLE");
+        ShieldKeyClient.LOGGER.debug("[ShieldKey] State = IDLE");
     }
 
     private static boolean hasOffhandShield(Minecraft client) {

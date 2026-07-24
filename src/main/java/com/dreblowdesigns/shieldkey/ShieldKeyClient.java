@@ -14,6 +14,6 @@ public class ShieldKeyClient implements ClientModInitializer {
     public void onInitializeClient() {
         ShieldKeyBinding.initialize();
 
-        LOGGER.info("ShieldKey initialized.");
+        LOGGER.info("ShieldKey v.0.1.0 initialized.");
     }
 }

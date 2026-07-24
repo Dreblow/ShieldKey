@@ -21,11 +21,7 @@ public final class InputDiagnostics {
         // ShieldKey input
         //
         if (shiftHeld != lastShift) {
-            ShieldKeyClient.LOGGER.info(
-                    "[ShieldKey] Shift = {}",
-                    shiftHeld ? "DOWN" : "UP"
-            );
-
+            ShieldKeyClient.LOGGER.debug("[ShieldKey] Shift = {}", shiftHeld ? "DOWN" : "UP");
             lastShift = shiftHeld;
         }
 
@@ -35,11 +31,7 @@ public final class InputDiagnostics {
         boolean useKey = client.options.keyUse.isDown();
 
         if (useKey != lastUseKey) {
-            ShieldKeyClient.LOGGER.info(
-                    "[ShieldKey] UseKey = {}",
-                    useKey ? "DOWN" : "UP"
-            );
-
+            ShieldKeyClient.LOGGER.debug("[ShieldKey] UseKey = {}", useKey ? "DOWN" : "UP");
             lastUseKey = useKey;
         }
 
@@ -53,10 +45,7 @@ public final class InputDiagnostics {
         ItemStack offhand = client.player.getOffhandItem();
 
         if (!ItemStack.matches(offhand, lastOffhand)) {
-            ShieldKeyClient.LOGGER.info(
-                    "[ShieldKey] Offhand = {}",
-                    offhand.isEmpty() ? "EMPTY" : offhand.getItem()
-            );
+            ShieldKeyClient.LOGGER.debug("[ShieldKey] Offhand = {}", offhand.isEmpty() ? "EMPTY" : offhand.getItem());
 
             lastOffhand = offhand.copy();
         }
@@ -74,19 +63,12 @@ public final class InputDiagnostics {
             ItemStack stack = client.player.getUseItem();
 
             if (stack.is(Items.SHIELD)) {
-                ShieldKeyClient.LOGGER.info(
-                        "[ShieldKey] Player started using SHIELD"
-                );
+                ShieldKeyClient.LOGGER.debug("[ShieldKey] Player started using SHIELD");
             } else {
-                ShieldKeyClient.LOGGER.info(
-                        "[ShieldKey] Player started using {}",
-                        stack.getItem()
-                );
+                ShieldKeyClient.LOGGER.debug("[ShieldKey] Player started using {}", stack.getItem());
             }
         } else {
-            ShieldKeyClient.LOGGER.info(
-                    "[ShieldKey] Player stopped using item"
-            );
+            ShieldKeyClient.LOGGER.debug("[ShieldKey] Player stopped using item");
         }
 
         lastUsingItem = usingItem;
