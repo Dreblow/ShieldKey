@@ -49,17 +49,27 @@ MIT
 
 # Revision History
 
-## ShieldKey 0.1.0-alpha
+## ShieldKey 0.1.0
 
-Initial public alpha release.
+Initial public beta release.
 
 ### Features
 
-- Adds a dedicated configurable shield keybind.
-- Raises an offhand shield while the key is held.
-- Preserves normal vanilla shield behavior.
-- Runs entirely on the client.
-- Defaults to Left Shift.
+- Dedicated shield key
+- Automatically lowers the shield when attacking
+- Automatically restores the shield after attacking
+- Right-click suspend and resume behavior
+- Client-side Fabric mod
+
+### Known Limitation
+
+ShieldKey currently maintains shield use through Minecraft's standard Use input. When a usable or placeable item is held in the main hand, activating the shield may also use that item.
+
+### Feedback and Bug Reports
+
+Community feedback is welcome, especially regarding combat behavior and main-hand item interactions.
+
+Please report [issues](https://github.com/Dreblow/ShieldKey/issues)
 
 ### Requirements
 

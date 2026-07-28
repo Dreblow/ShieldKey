@@ -36,6 +36,20 @@ public final class ShieldController {
         boolean attackReleased = !attackHeld && lastAttackHeld;
 
         //
+        // Reset if the player or offhand shield disappears
+        //
+        if (client.player == null || !hasOffhandShield(client)) {
+            if (state != ShieldState.IDLE) {
+                deactivateShield(client);
+            }
+
+            lastShieldKeyHeld = shieldKeyHeld;
+            lastRightMouseHeld = rightMouseHeld;
+            lastAttackHeld = attackHeld;
+            return;
+        }
+
+        //
         // Shield key pressed
         //
         if (shieldKeyPressed) {
@@ -109,6 +123,7 @@ public final class ShieldController {
     private static void activateShield(Minecraft client) {
 
         if (!hasOffhandShield(client)) {
+            client.options.keyUse.setDown(false);
             state = ShieldState.IDLE;
             return;
         }
