@@ -1,5 +1,7 @@
 package com.dreblowdesigns.shieldkey.input;
 
+import com.dreblowdesigns.shieldkey.utilities.InputDiagnostics;
+
 import com.dreblowdesigns.shieldkey.ShieldKeyClient;
 import com.dreblowdesigns.shieldkey.shield.ShieldController;
 import com.mojang.blaze3d.platform.InputConstants;
@@ -28,13 +30,16 @@ public final class ShieldKeyBinding {
                 CATEGORY
         ));
 
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            boolean isPressed = shieldKey.isDown();
+        ClientTickEvents.START_CLIENT_TICK.register(client -> {
+            boolean shiftHeld = shieldKey.isDown();
 
-            if (isPressed != wasPressed) {
-                ShieldController.setShieldRequested(isPressed);
-                wasPressed = isPressed;
-            }
+            ShieldController.update(client, shiftHeld);
+        });
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            boolean shiftHeld = shieldKey.isDown();
+
+            InputDiagnostics.update(client, shiftHeld);
         });
 
         ShieldKeyClient.LOGGER.info("Shield keybind registered.");

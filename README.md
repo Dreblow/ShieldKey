@@ -44,3 +44,35 @@ Players using laptops and trackpads often have difficulty holding right-click wh
 ## License
 
 MIT
+
+---
+
+# Revision History
+
+## ShieldKey 0.1.0
+
+Initial public beta release.
+
+### Features
+
+- Dedicated shield key
+- Automatically lowers the shield when attacking
+- Automatically restores the shield after attacking
+- Right-click suspend and resume behavior
+- Client-side Fabric mod
+
+### Known Limitation
+
+ShieldKey currently maintains shield use through Minecraft's standard Use input. When a usable or placeable item is held in the main hand, activating the shield may also use that item.
+
+### Feedback and Bug Reports
+
+Community feedback is welcome, especially regarding combat behavior and main-hand item interactions.
+
+Please report [issues](https://github.com/Dreblow/ShieldKey/issues)
+
+### Requirements
+
+- Minecraft 26.2
+- Fabric Loader 0.19.3 or newer
+- Fabric API
