@@ -16,7 +16,6 @@ public final class ShieldKeyBinding {
             KeyMapping.Category.register(Identifier.fromNamespaceAndPath(ShieldKeyClient.MOD_ID, "controls"));
 
     private static KeyMapping shieldKey;
-    private static boolean wasPressed = false;
 
     private ShieldKeyBinding() {
     }
