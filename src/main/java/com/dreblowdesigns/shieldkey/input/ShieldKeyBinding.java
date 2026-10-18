@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.Identifier;
-import org.lwjgl.glfw.GLFW;
 
 public final class ShieldKeyBinding {
 
@@ -24,10 +23,9 @@ public final class ShieldKeyBinding {
 
     public static void initialize() {
         shieldKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
-                "key.shieldkey.raise_shield",
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_LEFT_SHIFT,
-                CATEGORY
+            "key.shieldkey.raise_shield",
+            InputConstants.KEY_LSHIFT,
+            CATEGORY
         ));
 
         ClientTickEvents.START_CLIENT_TICK.register(client -> {
