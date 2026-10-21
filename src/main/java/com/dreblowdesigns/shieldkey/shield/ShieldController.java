@@ -3,6 +3,7 @@ package com.dreblowdesigns.shieldkey.shield;
 import com.dreblowdesigns.shieldkey.ShieldKeyClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.Items;
+import org.lwjgl.sdl.SDLMouse;
 
 public final class ShieldController {
 
@@ -173,10 +174,14 @@ public final class ShieldController {
     }
 
     private static boolean isRightMouseHeld(Minecraft client) {
-        return client.options.keyUse.isDown();
+        int mouseState = SDLMouse.SDL_GetMouseState(null, null);
+
+        return (mouseState & SDLMouse.SDL_BUTTON_RMASK) != 0;
     }
 
     private static boolean isLeftMouseHeld(Minecraft client) {
-        return client.options.keyAttack.isDown();
+        int mouseState = SDLMouse.SDL_GetMouseState(null, null);
+
+        return (mouseState & SDLMouse.SDL_BUTTON_LMASK) != 0;
     }
 }
