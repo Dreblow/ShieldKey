@@ -3,7 +3,7 @@ package com.dreblowdesigns.shieldkey.shield;
 import com.dreblowdesigns.shieldkey.ShieldKeyClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.Items;
-import org.lwjgl.glfw.GLFW;
+import org.lwjgl.sdl.SDLMouse;
 
 public final class ShieldController {
 
@@ -174,20 +174,14 @@ public final class ShieldController {
     }
 
     private static boolean isRightMouseHeld(Minecraft client) {
-        long windowHandle = client.getWindow().handle();
+        int mouseState = SDLMouse.SDL_GetMouseState(null, null);
 
-        return GLFW.glfwGetMouseButton(
-                windowHandle,
-                GLFW.GLFW_MOUSE_BUTTON_RIGHT
-        ) == GLFW.GLFW_PRESS;
+        return (mouseState & SDLMouse.SDL_BUTTON_RMASK) != 0;
     }
 
     private static boolean isLeftMouseHeld(Minecraft client) {
-        long windowHandle = client.getWindow().handle();
+        int mouseState = SDLMouse.SDL_GetMouseState(null, null);
 
-        return GLFW.glfwGetMouseButton(
-                windowHandle,
-                GLFW.GLFW_MOUSE_BUTTON_LEFT
-        ) == GLFW.GLFW_PRESS;
+        return (mouseState & SDLMouse.SDL_BUTTON_LMASK) != 0;
     }
 }
